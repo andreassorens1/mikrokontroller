@@ -20,5 +20,23 @@ void uart_init(){
 
 
 void uart_send(char letter){
-    
+    UART->TASKS_STARTTX = 1;
+
+    UART->TXD = letter;
+
+    UART->EVENTS_TXDRDY = 0;
+
+    UART->TASKS_STOPTX = 1;
+}
+
+
+char uart_read(){
+    if (!(GPIO->RXD)){
+        return '\0'
+    }
+    else {
+        UART->EVENTS_RXDRDY = 0;
+
+        
+    }
 }

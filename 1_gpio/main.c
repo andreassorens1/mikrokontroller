@@ -43,7 +43,7 @@ int main(){
 			}
 			
 		 }
-		 if (!(GPIO->IN & (1 << 13))) {              //vis knapp2 trykkes, skru av alle lysene
+		 if (!(GPIO->IN & (1 << 13))) {              //Hvis knapp2 trykkes, skru av alle lysene
 			for (int i = 17; i <= 20; i++){
 				GPIO->OUTCLR = (1 << i);
 			}

@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef GPIO_H
 #define GPIO_H
 #include <stdint.h>
@@ -18,3 +20,6 @@ typedef struct {
 } NRF_GPIO_REG;
 
 #endif
+
+
+void button_init();
