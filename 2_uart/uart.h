@@ -1,15 +1,15 @@
 #pragma once
-
+#include <stdint.h>
 
 #define UART ((NRF_UART_REG*)0x40002000)
 
 typedef struct { 
 	volatile uint32_t TASKS_STARTRX;
-	volatile uint32_t TASK_STOPRX;
-	volatile uint32_t TASK_STARTTX;
-	volatile uint32_t TASK_STOPTX;
+	volatile uint32_t TASKS_STOPRX;
+	volatile uint32_t TASKS_STARTTX;
+	volatile uint32_t TASKS_STOPTX;
     volatile uint32_t RESERVED0[3];
-	volatile uint32_t TASK_SUSPEND;
+	volatile uint32_t TASKS_SUSPEND;
     volatile uint32_t RESERVED1[56];
 	volatile uint32_t EVENTS_CTS;
     volatile uint32_t EVENTS_NCTS;
@@ -47,3 +47,6 @@ typedef struct {
 void uart_init();
 void uart_send(char letter);
 char uart_read();
+
+void uart_send_str(char ** str);
+ssize_t _write(int fd, const void *buf, size_t count);

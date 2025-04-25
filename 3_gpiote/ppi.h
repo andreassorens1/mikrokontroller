@@ -29,3 +29,5 @@ typedef struct {
 } NRF_PPI_REG;
 
 #endif
+
+void config_ppi();
